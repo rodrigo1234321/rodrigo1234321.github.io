@@ -27,7 +27,7 @@ Panel: **Domain List → rodrigodev.me → Manage → Advanced DNS → Add New R
 
 | Tipo | Host | Valor | TTL | Propósito | Estado |
 |---|---|---|---|---|---|
-| CNAME | `naro` | `cname.vercel-dns.com.` | Automatic | Naro AI → Vercel | ⬜ Pendiente |
+| CNAME | `naro` | `cname.vercel-dns.com.` | Automatic | Naro AI → Vercel | ✅ Activo |
 | CNAME | `api` | *(ver nota Cloudflare)* | Automatic | API → Cloudflare | ⬜ Pendiente |
 | CNAME | `lab` | `rodrigo1234321.github.io.` | Automatic | Labs UTN → GitHub Pages | ⬜ Pendiente |
 | CNAME | `demo` | `cname.vercel-dns.com.` | Automatic | Demos rápidas → Vercel | ⬜ Pendiente |
