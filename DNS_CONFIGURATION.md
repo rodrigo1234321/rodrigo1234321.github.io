@@ -3,6 +3,10 @@
 Manual definitivo de registros DNS para Namecheap, plataformas y verificación.
 **Actualizado: agosto 2026** — corregido (sin Heroku, branch `main`, API en Cloudflare).
 
+> **Visibilidad pública:** el hub (index.html) ya **no muestra** el mapa DNS ni las
+> tarjetas `api`/`lab`. Este documento es la única fuente de verdad interna de la
+> infraestructura.
+
 ---
 
 ## 1. Estado actual (ya configurado y propagado)
@@ -28,12 +32,16 @@ Panel: **Domain List → rodrigodev.me → Manage → Advanced DNS → Add New R
 | Tipo | Host | Valor | TTL | Propósito | Estado |
 |---|---|---|---|---|---|
 | CNAME | `naro` | `cname.vercel-dns.com.` | Automatic | Naro AI → Vercel | ✅ Activo |
-| CNAME | `api` | *(ver nota Cloudflare)* | Automatic | API → Cloudflare | ⬜ Pendiente |
+| CNAME | `api` | *(ver nota Cloudflare)* | Automatic | API → Cloudflare (uso interno, no se enlaza desde el hub) | ⬜ Pendiente |
 | CNAME | `lab` | `rodrigo1234321.github.io.` | Automatic | Labs UTN → GitHub Pages | ⬜ Pendiente |
 | CNAME | `demo` | `cname.vercel-dns.com.` | Automatic | Demos rápidas → Vercel | ⬜ Pendiente |
 | CNAME | `auth` | `accounts.clerk.services.` | Automatic | Autenticación Clerk | ⬜ Pendiente |
 
 ### Nota importante sobre `api` (Cloudflare Workers)
+
+El worker ya está desplegado y funciona en `https://rodrigodev-api.sanmartindiego93.workers.dev`
+(endpoints `/`, `/health`, `/status`, `/dns`, `/echo`). Está **oculto del sitio público**:
+los frontends lo consumen por detrás, no se enlaza desde el hub.
 
 Para usar `api.rodrigodev.me` con Cloudflare Workers, el dominio **debe estar en una zona de Cloudflare** (los Workers no aceptan CNAME directo hacia `*.workers.dev`). Dos opciones:
 
