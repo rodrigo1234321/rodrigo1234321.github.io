@@ -5,6 +5,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- Always start at top ---------- */
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('pageshow', () => {
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  });
+
   /* ---------- Cursor Glow ---------- */
   const cursorGlow = document.createElement('div');
   cursorGlow.classList.add('cursor-glow');
