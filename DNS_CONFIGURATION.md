@@ -19,7 +19,13 @@ El dominio raíz **ya resuelve a GitHub Pages**. Verificado con `nslookup`:
 | `@` | A | 185.199.109.153 | ✅ Activo |
 | `@` | A | 185.199.110.153 | ✅ Activo |
 | `@` | A | 185.199.111.153 | ✅ Activo |
-| `www` | CNAME | rodrigo1234321.github.io | ✅ Activo |
+| `www` | CNAME | **rodrigodev.me** (apex) | ✅ Activo — HTTPS: certificado de `www` **NO emitido** |
+
+> **Nota `www` (agosto 2026):** el CNAME de `www` apunta al apex (`rodrigodev.me`), por lo que
+> `http://www` redirige bien (301 → apex) pero `https://www.rodrigodev.me` **no tiene certificado**
+> (GitHub solo emite el cert de `www` si el CNAME apunta a `rodrigo1234321.github.io.`).
+> El apex `https://rodrigodev.me` es 100% seguro (cert emitido + Enforce HTTPS activo).
+> Para emitir el cert de `www`: cambiar CNAME `www → rodrigo1234321.github.io.` en Namecheap.
 
 > IPv6 (AAAA `2606:50c0:8000::153` … `8003::153`) opcional — no es necesario.
 
