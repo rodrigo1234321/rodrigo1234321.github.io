@@ -82,6 +82,7 @@
     ],
     contact: () => [
       { t: 'Contacto:', c: CLR.cyan },
+      { t: '  WhatsApp : +54 9 223 599-8303 (respuesta rápida)', c: CLR.green },
       { t: '  Email    : rodrigosanmartin07@gmail.com', c: CLR.text },
       { t: '  GitHub   : https://github.com/rodrigo1234321', c: CLR.text },
       { t: '  LinkedIn : https://linkedin.com/in/rodrigo', c: CLR.text }
