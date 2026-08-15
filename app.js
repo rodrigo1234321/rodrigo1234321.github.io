@@ -1,6 +1,6 @@
 /* ============================================
    RODRIGODEV.ME — Interactive Terminal (app.js)
-   Commands: help · dns · stack · naro · projects
+   Commands: help · stack · naro · projects
              about · contact · whoami · clear
    ============================================ */
 
@@ -24,20 +24,12 @@
   };
 
   const eco = {
-    dns: [
-      ['@', 'A', '185.199.108.153 + 3 más', 'GitHub Pages'],
-      ['www', 'CNAME', 'rodrigo1234321.github.io', 'GitHub Pages'],
-      ['naro', 'CNAME', 'cname.vercel-dns.com', 'Vercel'],
-      ['api', 'CNAME', 'workers.dev', 'Cloudflare'],
-      ['lab', 'CNAME', 'rodrigo1234321.github.io', 'GitHub Pages (pronto)']
-    ],
     stack: [
       ['Frontend', 'Next.js, React, TypeScript, Tailwind, HTML/CSS/JS'],
       ['Backend', 'Node.js, NestJS, Python (FastAPI), Prisma ORM'],
       ['Bases de datos', 'PostgreSQL, MongoDB Atlas, Supabase, Firestore'],
       ['IA', 'Gemini AI, Claude, OpenAI, n8n workflows'],
-      ['DevOps', 'GitHub Actions, Vercel, Cloudflare Workers, Docker, Firebase'],
-      ['Costo mensual', '$0 — GitHub Student Pack + tiers gratuitos']
+      ['DevOps', 'GitHub Actions, Vercel, Cloudflare Workers, Docker, Firebase']
     ],
     projects: [
       ['GestiónComercial', 'SaaS de stock y ventas con IA', 'https://control-comercio-weld.vercel.app'],
@@ -53,7 +45,6 @@
     help: () => [
       { t: 'Comandos disponibles:', c: CLR.cyan },
       { t: '  help       — mostrar esta ayuda', c: CLR.text },
-      { t: '  dns        — registros DNS del ecosistema', c: CLR.text },
       { t: '  stack      — stack tecnológico', c: CLR.text },
       { t: '  naro       — info de la startup Naro AI', c: CLR.text },
       { t: '  projects   — proyectos destacados', c: CLR.text },
@@ -62,29 +53,17 @@
       { t: '  whoami     — quién estás consultando', c: CLR.text },
       { t: '  clear      — limpiar la terminal', c: CLR.text }
     ],
-    dns: () => {
-      const out = [
-        { t: 'Registros DNS de rodrigodev.me (Namecheap):', c: CLR.cyan },
-        { t: '  Host    Tipo    Destino                      Plataforma', c: CLR.muted }
-      ];
-      eco.dns.forEach(r => out.push({
-        t: `  ${r[0].padEnd(7)} ${r[1].padEnd(6)} ${r[2].padEnd(27)} ${r[3]}`,
-        c: r[1] === 'A' ? CLR.yellow : CLR.purple
-      }));
-      out.push({ t: '  IPv6 AAAA disponibles para el apex (@) — opcionales.', c: CLR.muted });
-      return out;
-    },
     stack: () => {
       const out = [{ t: 'Stack tecnológico:', c: CLR.cyan }];
       eco.stack.forEach(r => out.push({ t: `  ${r[0].padEnd(16)} ${r[1]}`, c: CLR.text }));
       return out;
     },
     naro: () => [
-      { t: 'NARO AI — Startup de asistentes con IA', c: CLR.green },
-      { t: '  Frontend  : Next.js + Tailwind en Vercel', c: CLR.text },
-      { t: '  Backend   : APIs serverless (Cloudflare Workers)', c: CLR.text },
+      { t: 'NARO AI — Asistentes con IA para tu negocio', c: CLR.green },
+      { t: '  Qué es    : agencia de IA y crecimiento digital', c: CLR.text },
+      { t: '  Productos : chatbots, automatización, landing', c: CLR.text },
       { t: '  URL       : https://naro.rodrigodev.me', c: CLR.blue },
-      { t: '  Estado    : en despliegue continuo desde GitHub', c: CLR.yellow }
+      { t: '  Estado    : activo — probalo ahora', c: CLR.yellow }
     ],
     projects: () => {
       const out = [{ t: 'Proyectos destacados:', c: CLR.cyan }];

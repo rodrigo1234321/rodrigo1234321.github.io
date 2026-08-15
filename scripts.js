@@ -23,7 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorGlow.classList.remove('active');
   });
 
+  let glowRunning = true;
+
   function animateCursorGlow() {
+    if (!glowRunning) return;
     glowX += (mouseX - glowX) * 0.12;
     glowY += (mouseY - glowY) * 0.12;
     cursorGlow.style.left = glowX + 'px';
@@ -31,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateCursorGlow);
   }
   animateCursorGlow();
+
+  document.addEventListener('visibilitychange', () => {
+    glowRunning = !document.hidden;
+    if (glowRunning) animateCursorGlow();
+  });
 
 
   /* ---------- Navbar Scroll ---------- */
@@ -317,31 +325,37 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(particleStyle);
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 8; i++) {
     createParticle();
   }
 
+  document.addEventListener('visibilitychange', () => {
+    particleContainer.style.display = document.hidden ? 'none' : '';
+  });
+
 
   /* ---------- Glassmorphism Card Shine ---------- */
-  const glassCards = document.querySelectorAll('.project-card, .about-card, .contact-card');
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const glassCards = document.querySelectorAll('.project-card, .about-card, .contact-card');
 
-  glassCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--shine-x', x + '%');
-      card.style.setProperty('--shine-y', y + '%');
-      card.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.06) 0%, transparent 50%),
-        var(--bg-glass)
-      `;
-    });
+    glassCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--shine-x', x + '%');
+        card.style.setProperty('--shine-y', y + '%');
+        card.style.background = `
+          radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.06) 0%, transparent 50%),
+          var(--bg-glass)
+        `;
+      });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.background = '';
+      card.addEventListener('mouseleave', () => {
+        card.style.background = '';
+      });
     });
-  });
+  }
 
 
   /* ---------- Scroll Progress Bar ---------- */

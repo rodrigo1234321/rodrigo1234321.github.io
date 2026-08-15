@@ -87,7 +87,7 @@ body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(60px);
   opacity: 0.12;
   pointer-events: none;
   z-index: 0;
@@ -1928,7 +1928,7 @@ body::after {
 }
 
 /* ------------------------------------------- */
-/* Ecosystem — subdomain cards + DNS map       */
+/* Ecosystem ï¿½ subdomain cards + DNS map       */
 /* ------------------------------------------- */
 
 .ecosystem {
@@ -2019,11 +2019,6 @@ body::after {
   box-shadow: 0 0 14px var(--accent-green-glow);
 }
 
-.eco-badge--soon {
-  color: #451a03;
-  background: var(--accent-orange);
-}
-
 .eco-icon {
   font-size: 1.5rem;
   color: var(--accent-purple);
@@ -2070,43 +2065,6 @@ body::after {
 }
 
 .eco-card:hover .eco-link { gap: 11px; }
-
-.eco-dns {
-  margin-top: 48px;
-  border-radius: var(--glass-border-radius);
-  border: 1px solid var(--border-glass);
-  background: var(--bg-card);
-  overflow: hidden;
-}
-
-.eco-dns__label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border-glass);
-}
-
-.eco-dns__row {
-  display: grid;
-  grid-template-columns: 1fr 0.6fr 2fr 1.2fr;
-  gap: 10px;
-  padding: 10px 20px;
-  font-size: 0.82rem;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: var(--text-secondary);
-}
-
-.eco-dns__row:last-child { border-bottom: none; }
-.eco-dns__row--head {
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
 
 .mono { font-family: var(--font-mono); color: var(--accent-cyan); }
 
@@ -2200,8 +2158,23 @@ body::after {
 
 @media (max-width: 640px) {
   .eco-card--feature { grid-column: span 1; }
-  .eco-dns__row { grid-template-columns: 1fr 1fr; }
-  .eco-dns__row span:nth-child(3),
-  .eco-dns__row span:nth-child(4) { display: none; }
   .terminal-body { height: 300px; font-size: 0.78rem; }
+}
+
+/* ------------------------------------------- */
+/* Performance                                 */
+/* ------------------------------------------- */
+
+#about, #tech, #projects, #ecosystem, #terminal, #services, #process, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
 }
