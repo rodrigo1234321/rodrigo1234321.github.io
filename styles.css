@@ -2070,6 +2070,146 @@ body::after {
 
 
 /* ------------------------------------------- */
+/* Landings por rubro                          */
+/* ------------------------------------------- */
+
+.landings-block {
+  margin-top: 64px;
+}
+
+.landings-block .section-subtitle { margin-bottom: 0; }
+
+.landings-heading {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.rubro-group { margin-top: 36px; }
+
+.rubro-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+}
+
+.rubro-title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+  flex-shrink: 0;
+}
+
+.rubro-group--real .rubro-title {
+  color: var(--accent-green);
+}
+
+.rubro-group--real .rubro-title::before {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green-glow);
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.landing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 18px;
+  border-radius: var(--glass-border-radius);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(var(--glass-blur));
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: transform var(--transition-spring), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.landing-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glass-hover);
+  background: var(--bg-glass-hover);
+}
+
+.landing-card__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.landing-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--text-muted);
+}
+
+.landing-card__meta span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.landing-badge {
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-glass);
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.landing-badge--real {
+  color: var(--accent-green);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.catalog-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: linear-gradient(145deg, rgba(99,102,241,0.14), rgba(168,85,247,0.12));
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform var(--transition-spring), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.catalog-cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 32px var(--accent-blue-glow);
+}
+
+.catalog-cta svg { flex-shrink: 0; }
+
+
+/* ------------------------------------------- */
 /* Terminal                                    */
 /* ------------------------------------------- */
 

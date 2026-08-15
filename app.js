@@ -37,7 +37,8 @@
       ['Panorama.ar', 'Portal de noticias con scraper automático', 'https://panorama-web-one.vercel.app'],
       ['Dynasty.ar', 'E-commerce tech con checkout por WhatsApp', 'https://rodrigo1234321.github.io/dynasty'],
       ['Lucky Detail', 'Web para comercio local premium', 'https://rodrigo1234321.github.io/lucky-detail'],
-      ['MS Refrigeración', 'Web corporativa con n8n', 'https://rodrigo1234321.github.io/ms-refrigeracion-web']
+      ['MS Refrigeración', 'Web corporativa con n8n', 'https://rodrigo1234321.github.io/ms-refrigeracion-web'],
+      ['ml-afiliados-tech', 'Portal SEO de afiliados tech', 'https://rodrigo1234321.github.io/meliafiliados']
     ]
   };
 
