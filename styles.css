@@ -2305,11 +2305,6 @@ body::after {
 /* Performance                                 */
 /* ------------------------------------------- */
 
-#about, #tech, #projects, #ecosystem, #terminal, #services, #process, #contact {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
